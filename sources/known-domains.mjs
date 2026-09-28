@@ -24,6 +24,7 @@ export const CATEGORIES = {
   ntp: 'Clock synchronisation',
   doh: 'Encrypted DNS, which routes around this tool',
   assistant: 'Voice assistants and smart-home backends',
+  acr: 'Automatic content recognition: what is on your screen, reported',
 };
 
 export const KNOWN = {
@@ -126,8 +127,37 @@ export const KNOWN = {
   'time.apple.com': 'ntp',
   'time.google.com': 'ntp',
 
+  /* Automatic content recognition. Its own category rather than "telemetry",
+     because it is a different kind of thing: the television samples what is on
+     the screen, fingerprints it, and reports what you are watching, including
+     from devices plugged into it. Most sets ship with it enabled and call it
+     something agreeable in the settings menu.
+
+     A separate category exists so this cannot be skimmed past in a row that
+     also contains crash reports. It is usually the most interesting line in a
+     first report, and the one people did not know to look for.
+
+     These domains move. Treat the list as a starting point, not coverage: a set
+     talking to an unrecognised host every few seconds while idle is worth
+     looking up whatever this file says. */
+  'samsungacr.com': 'acr',
+  'lgsmartad.com': 'acr',
+  'lgtvsdp.com': 'acr',
+  'tvinteractive.tv': 'acr',
+
+  // smart-TV platforms. Not ACR itself, but the same devices and worth naming.
+  'samsungcloudsolution.com': 'telemetry',
+  'samsungcloudsolution.net': 'telemetry',
+  'samsungosp.com': 'telemetry',
+  'samsungrm.net': 'telemetry',
+  'lgappstv.com': 'telemetry',
+  'scribe.logs.roku.com': 'telemetry',
+  'roku.com': 'telemetry',
+
   // assistants and smart home
   'alexa.amazon.com': 'assistant',
+  'amazonalexa.com': 'assistant',
+  'arcus-uswest.amazon.com': 'assistant',
   'avs-alexa-na.amazon.com': 'assistant',
   'tuyaus.com': 'assistant',
   'tuyaeu.com': 'assistant',
@@ -136,6 +166,11 @@ export const KNOWN = {
   'ring.com': 'assistant',
   'nest.com': 'assistant',
   'smartthings.com': 'assistant',
+  'roborock.com': 'assistant',
+  'ecovacs.com': 'assistant',
+  'meethue.com': 'assistant',
+  'shelly.cloud': 'assistant',
+  'tuyacn.com': 'assistant',
 };
 
 /* Encrypted DNS endpoints.

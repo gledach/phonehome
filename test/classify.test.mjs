@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classify, summarise } from '../core/classify.mjs';
+import { classify, summarise, CATEGORIES } from '../core/classify.mjs';
+import { KNOWN } from '../sources/known-domains.mjs';
 
 test('a known domain is classified with confidence', () => {
   const c = classify('doubleclick.net');
@@ -83,3 +84,24 @@ test('an empty input does not divide by zero', () => {
   assert.equal(s.total, 0);
   assert.equal(s.unknownShare, 0);
 });
+
+test('content recognition is its own category, not filed under telemetry', () => {
+  /* A television fingerprinting what is on the screen is a different kind of
+     thing from a crash report, and the whole value of the report is that this
+     line stands out rather than blending into a telemetry total. */
+  const acr = classify('samsungacr.com');
+  assert.equal(acr.category, 'acr');
+  assert.ok(CATEGORIES.acr.includes('on your screen'), 'the category must explain itself in the report');
+});
+
+test('a subdomain of a content recognition host still classifies', () => {
+  assert.equal(classify('api.samsungacr.com').category, 'acr');
+});
+
+test('every category used by a known domain has a description', () => {
+  // A category with no description prints as a blank cell in the report.
+  for (const [domain, category] of Object.entries(KNOWN)) {
+    assert.ok(CATEGORIES[category], `"${domain}" uses category "${category}", which has no description`);
+  }
+});
+
