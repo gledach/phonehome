@@ -1,0 +1,15 @@
+# Your network. Neither of these belongs upstream.
+config/devices.local.mjs
+config/domains.local.mjs
+
+# Everything observed. This is the whole point: it stays on your machine.
+data/
+
+# OS and editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# There is no build step, so nothing here is generated.
+node_modules/
