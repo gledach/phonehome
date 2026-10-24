@@ -4,7 +4,7 @@ export default function help() {
   const b = c.bold;
   const d = c.dim;
   console.log(`
-${b('phonehome')} ${d('· see what your devices talk to')}
+${b('gledach-phonehome')} ${d('· see what your devices talk to')}
 
 A local DNS resolver that records which domains every device on your network
 contacts, classifies them, and tells you when one starts talking to somewhere
@@ -23,20 +23,20 @@ ${b('COMMANDS')}
 ${b('START HERE')}
 
   ${d('# already have a DNS log? read it, no setup at all')}
-  phonehome import /var/log/pihole.log --execute
-  phonehome report
+  gledach-phonehome import /var/log/pihole.log --execute
+  gledach-phonehome report
 
   ${d('# otherwise run the resolver and point this machine at it')}
-  phonehome watch
+  gledach-phonehome watch
   ${d('# then, in another terminal:')}
-  phonehome report
+  gledach-phonehome report
 
 ${b('SERVING THE WHOLE HOUSE')}
 
   By default it binds ${b('127.0.0.1:5335')}, which only this machine can use. To see
   every device, bind the network and point your router's DHCP at this address:
 
-    phonehome watch --host=0.0.0.0 --port=5335
+    gledach-phonehome watch --host=0.0.0.0 --port=5335
 
   Port 53 is the one devices expect and needs privileges. Most routers let you
   set a custom DNS port; where they do not, forward 53 to 5335.
@@ -46,7 +46,7 @@ ${b('NAMING THINGS')}
   cp config/devices.local.mjs   ${d('# addresses to names: "the doorbell"')}
   cp config/domains.local.mjs   ${d('# your own classifications')}
 
-  Run ${b('phonehome devices')} first: it prints the lines to paste.
+  Run ${b('gledach-phonehome devices')} first: it prints the lines to paste.
 
 ${b('WHAT THIS CANNOT SEE')}
 

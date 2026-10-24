@@ -207,7 +207,7 @@ async function handle(msg) {
       });
     } catch (err) {
       return result(id, {
-        content: [{ type: 'text', text: `phonehome ${params?.name} failed: ${err.message}` }],
+        content: [{ type: 'text', text: `gledach-phonehome ${params?.name} failed: ${err.message}` }],
         isError: true,
       });
     }

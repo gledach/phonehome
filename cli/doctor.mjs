@@ -20,7 +20,7 @@ export default async function doctor({ flags }) {
   const bad = (l, d = '') => { problems += 1; console.log(`  ${c.red('FAIL')}  ${l}${d ? `  ${c.dim(d)}` : ''}`); };
 
   console.log('');
-  console.log(c.bold('phonehome doctor'));
+  console.log(c.bold('gledach-phonehome doctor'));
   console.log('');
 
   const major = Number(process.versions.node.split('.')[0]);
@@ -58,7 +58,7 @@ export default async function doctor({ flags }) {
     ok('data', `${pretty(paths.data)}, ${files.length} day file(s), ${recent.length} queries in the last day`);
     ok('pairings known', `${seenCount()} device and domain combinations`);
     if (recent.length === 0 && files.length === 0) {
-      warn('nothing recorded yet', 'run `phonehome watch`, or `phonehome import` a log you already have');
+      warn('nothing recorded yet', 'run `gledach-phonehome watch`, or `gledach-phonehome import` a log you already have');
     }
   } catch (err) { bad('data directory', err.message); }
 

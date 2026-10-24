@@ -15,6 +15,10 @@ node bin/phonehome.mjs help
 
 There is no `npm install`, because there is nothing to install.
 
+The command is `gledach-phonehome`. `npm link` puts that name on your PATH. The clone
+lines call the same file and need no link. Nothing named `phonehome` is installed: npm
+already publishes an unrelated package under that name. This package is `gledach-phonehome`.
+
 ## The fastest way to see something real
 
 If you already run Pi-hole, AdGuard Home, dnsmasq or Unbound, you have months of history on
@@ -63,12 +67,12 @@ you set a custom DNS port; where they do not, forward 53 to 5335.
 ## Commands
 
 ```bash
-phonehome watch      # run the resolver and record what asks for what
-phonehome report     # what happened, per device and per category
-phonehome new        # what started contacting somewhere it never had before
-phonehome devices    # everything that has asked, so you can name it
-phonehome import     # read a DNS log you already have
-phonehome doctor     # config, ports, upstream, and what this cannot see
+gledach-phonehome watch      # run the resolver and record what asks for what
+gledach-phonehome report     # what happened, per device and per category
+gledach-phonehome new        # what started contacting somewhere it never had before
+gledach-phonehome devices    # everything that has asked, so you can name it
+gledach-phonehome import     # read a DNS log you already have
+gledach-phonehome doctor     # config, ports, upstream, and what this cannot see
 ```
 
 `new` is the one that earns its keep. A steady list of domains is background noise. A
@@ -83,7 +87,7 @@ A report of IP addresses tells you almost nothing. A report of names tells you e
 cp config/devices.default.mjs config/devices.local.mjs
 ```
 
-Run `phonehome devices` first: it prints the exact lines to paste.
+Run `gledach-phonehome devices` first: it prints the exact lines to paste.
 
 ```js
 export default {

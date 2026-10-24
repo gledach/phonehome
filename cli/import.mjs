@@ -11,7 +11,7 @@ import { bool } from '../core/args.mjs';
 export default async function importCmd({ flags, _ }) {
   const file = _[0] ?? (typeof flags.file === 'string' ? flags.file : null);
   if (!file) {
-    console.error('Which log? `phonehome import /var/log/pihole.log`');
+    console.error('Which log? `gledach-phonehome import /var/log/pihole.log`');
     console.error(`Formats: ${FORMATS.join(', ')}. Default is auto.`);
     return 2;
   }
@@ -69,7 +69,7 @@ export default async function importCmd({ flags, _ }) {
     console.log(c.dim(`  Dry run. Nothing written. Add --execute to import ${parsed} observations.`));
   } else {
     console.log(c.green(`  Imported ${parsed} observations, ${firsts} first-time pairings.`));
-    console.log(c.dim('  Now try `phonehome report` or `phonehome new --days=30`.'));
+    console.log(c.dim('  Now try `gledach-phonehome report` or `gledach-phonehome new --days=30`.'));
   }
   console.log('');
   return 0;

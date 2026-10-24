@@ -25,7 +25,7 @@ export default async function watch({ flags }) {
   ensureDataDir();
   const release = acquireLock();
   if (!release) {
-    console.error(`Another phonehome watch holds ${pretty(paths.lock)}. Stop it, or delete the file if it is stale.`);
+    console.error(`Another gledach-phonehome watch holds ${pretty(paths.lock)}. Stop it, or delete the file if it is stale.`);
     return 1;
   }
 

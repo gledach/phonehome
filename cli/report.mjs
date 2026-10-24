@@ -23,8 +23,8 @@ export default async function report({ flags }) {
   console.log('');
 
   if (rows.length === 0) {
-    console.log(c.dim('  Nothing recorded yet. Run `phonehome watch` and point something at it,'));
-    console.log(c.dim('  or `phonehome import` an existing DNS log.'));
+    console.log(c.dim('  Nothing recorded yet. Run `gledach-phonehome watch` and point something at it,'));
+    console.log(c.dim('  or `gledach-phonehome import` an existing DNS log.'));
     console.log('');
     return 0;
   }

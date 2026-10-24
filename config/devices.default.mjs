@@ -8,7 +8,7 @@
  *
  * The copy is gitignored. Your network layout is nobody else's business.
  *
- * Find the addresses by running `phonehome devices` after watching for a while:
+ * Find the addresses by running `gledach-phonehome devices` after watching for a while:
  * it lists every client that has asked for anything, busiest first, so you can
  * name them one at a time.
  */

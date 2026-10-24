@@ -18,7 +18,7 @@ const name = args._[0] ?? (args.flags.help || args.flags.h ? 'help' : 'help');
 
 const loader = COMMANDS[name];
 if (!loader) {
-  console.error(`phonehome: unknown command "${name}"`);
+  console.error(`gledach-phonehome: unknown command "${name}"`);
   console.error(`Try one of: ${Object.keys(COMMANDS).join(', ')}`);
   process.exit(2);
 }
@@ -28,7 +28,7 @@ try {
   const code = await mod.default({ ...args, _: args._.slice(1) });
   process.exit(typeof code === 'number' ? code : 0);
 } catch (err) {
-  console.error(`phonehome ${name}: ${err.message}`);
+  console.error(`gledach-phonehome ${name}: ${err.message}`);
   if (process.env.PHONEHOME_DEBUG) console.error(err.stack);
   process.exit(1);
 }

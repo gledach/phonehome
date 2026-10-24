@@ -1,5 +1,5 @@
 {
-  "name": "phonehome",
+  "name": "gledach-phonehome",
   "version": "0.1.0",
   "private": false,
   "description": "See what your devices talk to. A local DNS resolver that records which domains every device on your network contacts, classifies them, and tells you when one starts talking to somewhere new. Zero dependencies, nothing leaves the machine.",
@@ -9,7 +9,7 @@
     "node": ">=22.0.0"
   },
   "bin": {
-    "phonehome": "./bin/phonehome.mjs"
+    "gledach-phonehome": "./bin/phonehome.mjs"
   },
   "scripts": {
     "help": "node bin/phonehome.mjs help",
